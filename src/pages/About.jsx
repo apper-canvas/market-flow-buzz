@@ -1,10 +1,75 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Card from "@/components/atoms/Card";
-import Button from "@/components/atoms/Button";
+import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
-
+import Button from "@/components/atoms/Button";
+import Card from "@/components/atoms/Card";
 const About = () => {
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const modalRef = useRef(null);
+
+  const handleContactFormChange = (e) => {
+    const { name, value } = e.target;
+    setContactForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validation
+    if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim()) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactForm.email)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Mock submission with delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast.success('Message sent successfully! We\'ll get back to you soon.');
+      setContactForm({ name: '', email: '', subject: '', message: '' });
+      setShowContactModal(false);
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleLiveChat = () => {
+    toast.info('Connecting to live chat...', {
+      autoClose: 2000
+    });
+    
+    setTimeout(() => {
+      toast.success('Chat started! A support agent will be with you shortly.', {
+        autoClose: 4000
+      });
+    }, 2000);
+  };
+
+  const closeModal = (e) => {
+    if (e.target === modalRef.current) {
+      setShowContactModal(false);
+    }
+  };
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -301,22 +366,24 @@ const About = () => {
               Our customer support team is available 24/7 to assist you with any questions or concerns.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
+<Button
                 size="lg"
                 variant="accent"
-                className="text-lg"
+                className="text-lg btn-scale"
+                onClick={() => setShowContactModal(true)}
               >
                 <ApperIcon name="Mail" size={20} />
                 Contact Us
               </Button>
-              <Button
+<Button
                 size="lg"
                 variant="secondary"
-                className="text-lg bg-white/10 border-white/20 text-white hover:bg-white/20"
+                className="text-lg bg-white/10 border-white/20 text-white hover:bg-white/20 btn-scale"
+                onClick={handleLiveChat}
               >
                 <ApperIcon name="MessageCircle" size={20} />
                 Live Chat
-              </Button>
+</Button>
             </div>
             
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -339,6 +406,118 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {showContactModal && (
+        <div 
+          ref={modalRef}
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          onClick={closeModal}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-semibold text-gray-900">Contact Us</h3>
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <ApperIcon name="X" size={20} />
+              </button>
+            </div>
+            
+            <form onSubmit={handleContactSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={contactForm.name}
+                  onChange={handleContactFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={contactForm.email}
+                  onChange={handleContactFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  name="subject"
+                  value={contactForm.subject}
+                  onChange={handleContactFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Message *
+                </label>
+                <textarea
+                  name="message"
+                  value={contactForm.message}
+                  onChange={handleContactFormChange}
+                  rows="4"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                  required
+                ></textarea>
+              </div>
+              
+              <div className="flex gap-3 pt-2">
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => setShowContactModal(false)}
+                  className="flex-1"
+                  disabled={isSubmitting}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  variant="accent"
+                  className="flex-1"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="spinner mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
