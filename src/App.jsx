@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { store } from '@/store/store';
-import Header from '@/components/organisms/Header';
+import store from './store/store';
+import Header from './components/organisms/Header';
 import CartSidebar from '@/components/organisms/CartSidebar';
 import Home from '@/pages/Home';
 import Products from '@/pages/Products';
@@ -16,11 +16,17 @@ import AdminDashboard from '@/pages/admin/AdminDashboard';
 import '@/index.css';
 
 function App() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  
+  const handleCartOpen = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
     <Provider store={store}>
       <Router>
         <div className="min-h-screen bg-background">
-          <Header />
+          <Header onCartOpen={handleCartOpen} />
           <main className="pt-16">
 <Routes>
               <Route path="/" element={<Home />} />
@@ -34,7 +40,7 @@ function App() {
               <Route path="/admin/*" element={<AdminDashboard />} />
             </Routes>
           </main>
-          <CartSidebar />
+<CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
           <ToastContainer
             position="top-right"
             autoClose={3000}
