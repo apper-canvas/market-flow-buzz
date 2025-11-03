@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import { store } from './store/store';
-import Header from './components/organisms/Header';
-import CartSidebar from '@/components/organisms/CartSidebar';
-import Home from '@/pages/Home';
-import Products from '@/pages/Products';
-import ProductDetail from '@/pages/ProductDetail';
-import Checkout from '@/pages/Checkout';
-import OrderConfirmation from '@/pages/OrderConfirmation';
-import About from '@/pages/About';
-import Account from '@/pages/Account';
-import AdminDashboard from '@/pages/admin/AdminDashboard';
 import '@/index.css';
+import React, { useState } from "react";
+import { Route, Router, Routes } from "react-router-dom";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { store } from "./store/store";
+import About from "@/pages/About";
+import Home from "@/pages/Home";
+import Categories from "@/pages/Categories";
+import OrderConfirmation from "@/pages/OrderConfirmation";
+import Account from "@/pages/Account";
+import ProductDetail from "@/pages/ProductDetail";
+import Checkout from "@/pages/Checkout";
+import Products from "@/pages/Products";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
+import CartSidebar from "@/components/organisms/CartSidebar";
+import Header from "@/components/organisms/Header";
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <main className="pt-16">
 <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/categories" element={<Categories />} />
               <Route path="/products" element={<Products />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/deals" element={<Products />} />
