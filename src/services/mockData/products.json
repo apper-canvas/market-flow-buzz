@@ -1,0 +1,234 @@
+[
+  {
+    "Id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "description": "Premium over-ear wireless headphones with active noise cancellation and 30-hour battery life. Perfect for music lovers and professionals.",
+    "price": 199.99,
+    "compareAtPrice": 249.99,
+    "category": "Electronics",
+    "images": [
+      "/api/placeholder/400/400",
+      "/api/placeholder/400/401",
+      "/api/placeholder/400/402"
+    ],
+    "stock": 25,
+    "sku": "WBH-001",
+    "rating": 4.5,
+    "reviewCount": 128,
+    "featured": true,
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-20T14:22:00Z"
+  },
+  {
+    "Id": 2,
+    "name": "Organic Cotton T-Shirt",
+    "description": "Soft, breathable organic cotton t-shirt in classic fit. Made from sustainable materials with eco-friendly dyes.",
+    "price": 29.99,
+    "compareAtPrice": null,
+    "category": "Clothing",
+    "images": [
+      "/api/placeholder/400/403",
+      "/api/placeholder/400/404"
+    ],
+    "stock": 50,
+    "sku": "OCT-001",
+    "rating": 4.2,
+    "reviewCount": 45,
+    "featured": false,
+    "createdAt": "2024-01-10T08:15:00Z",
+    "updatedAt": "2024-01-18T16:45:00Z"
+  },
+  {
+    "Id": 3,
+    "name": "Smart Fitness Watch",
+    "description": "Advanced fitness tracking watch with heart rate monitor, GPS, and smartphone connectivity. Water-resistant up to 50m.",
+    "price": 299.99,
+    "compareAtPrice": 349.99,
+    "category": "Electronics",
+    "images": [
+      "/api/placeholder/400/405",
+      "/api/placeholder/400/406",
+      "/api/placeholder/400/407"
+    ],
+    "stock": 15,
+    "sku": "SFW-001",
+    "rating": 4.7,
+    "reviewCount": 89,
+    "featured": true,
+    "createdAt": "2024-01-12T12:00:00Z",
+    "updatedAt": "2024-01-22T09:30:00Z"
+  },
+  {
+    "Id": 4,
+    "name": "Ceramic Coffee Mug Set",
+    "description": "Set of 4 handcrafted ceramic coffee mugs with unique glazed finish. Perfect for your morning coffee ritual.",
+    "price": 39.99,
+    "compareAtPrice": 49.99,
+    "category": "Home & Kitchen",
+    "images": [
+      "/api/placeholder/400/408",
+      "/api/placeholder/400/409"
+    ],
+    "stock": 30,
+    "sku": "CCM-001",
+    "rating": 4.0,
+    "reviewCount": 23,
+    "featured": false,
+    "createdAt": "2024-01-08T14:20:00Z",
+    "updatedAt": "2024-01-19T11:10:00Z"
+  },
+  {
+    "Id": 5,
+    "name": "Leather Laptop Backpack",
+    "description": "Premium genuine leather laptop backpack with padded compartments and multiple pockets. Perfect for professionals and students.",
+    "price": 129.99,
+    "compareAtPrice": 169.99,
+    "category": "Bags & Accessories",
+    "images": [
+      "/api/placeholder/400/410",
+      "/api/placeholder/400/411",
+      "/api/placeholder/400/412"
+    ],
+    "stock": 20,
+    "sku": "LLB-001",
+    "rating": 4.6,
+    "reviewCount": 67,
+    "featured": true,
+    "createdAt": "2024-01-14T16:45:00Z",
+    "updatedAt": "2024-01-21T13:25:00Z"
+  },
+  {
+    "Id": 6,
+    "name": "Skincare Essentials Kit",
+    "description": "Complete skincare routine kit with cleanser, toner, serum, and moisturizer. Suitable for all skin types.",
+    "price": 89.99,
+    "compareAtPrice": 119.99,
+    "category": "Beauty & Personal Care",
+    "images": [
+      "/api/placeholder/400/413",
+      "/api/placeholder/400/414"
+    ],
+    "stock": 35,
+    "sku": "SEK-001",
+    "rating": 4.3,
+    "reviewCount": 156,
+    "featured": false,
+    "createdAt": "2024-01-11T09:30:00Z",
+    "updatedAt": "2024-01-20T15:50:00Z"
+  },
+  {
+    "Id": 7,
+    "name": "Wireless Charging Pad",
+    "description": "Fast wireless charging pad compatible with all Qi-enabled devices. Sleek design with LED charging indicator.",
+    "price": 24.99,
+    "compareAtPrice": null,
+    "category": "Electronics",
+    "images": [
+      "/api/placeholder/400/415"
+    ],
+    "stock": 40,
+    "sku": "WCP-001",
+    "rating": 4.1,
+    "reviewCount": 34,
+    "featured": false,
+    "createdAt": "2024-01-09T11:15:00Z",
+    "updatedAt": "2024-01-17T10:20:00Z"
+  },
+  {
+    "Id": 8,
+    "name": "Yoga Mat Premium",
+    "description": "Extra thick non-slip yoga mat made from eco-friendly TPE material. Includes carrying strap and exercise guide.",
+    "price": 49.99,
+    "compareAtPrice": 69.99,
+    "category": "Sports & Fitness",
+    "images": [
+      "/api/placeholder/400/416",
+      "/api/placeholder/400/417"
+    ],
+    "stock": 28,
+    "sku": "YMP-001",
+    "rating": 4.4,
+    "reviewCount": 78,
+    "featured": false,
+    "createdAt": "2024-01-13T15:40:00Z",
+    "updatedAt": "2024-01-19T12:35:00Z"
+  },
+  {
+    "Id": 9,
+    "name": "Stainless Steel Water Bottle",
+    "description": "Double-wall insulated stainless steel water bottle keeps drinks cold for 24 hours or hot for 12 hours. 24oz capacity.",
+    "price": 34.99,
+    "compareAtPrice": null,
+    "category": "Sports & Fitness",
+    "images": [
+      "/api/placeholder/400/418",
+      "/api/placeholder/400/419"
+    ],
+    "stock": 0,
+    "sku": "SSW-001",
+    "rating": 4.8,
+    "reviewCount": 203,
+    "featured": true,
+    "createdAt": "2024-01-16T13:25:00Z",
+    "updatedAt": "2024-01-22T08:45:00Z"
+  },
+  {
+    "Id": 10,
+    "name": "Bluetooth Portable Speaker",
+    "description": "Compact waterproof Bluetooth speaker with 360-degree sound and 12-hour battery life. Perfect for outdoor adventures.",
+    "price": 79.99,
+    "compareAtPrice": 99.99,
+    "category": "Electronics",
+    "images": [
+      "/api/placeholder/400/420",
+      "/api/placeholder/400/421",
+      "/api/placeholder/400/422"
+    ],
+    "stock": 18,
+    "sku": "BPS-001",
+    "rating": 4.5,
+    "reviewCount": 92,
+    "featured": true,
+    "createdAt": "2024-01-17T10:50:00Z",
+    "updatedAt": "2024-01-21T16:20:00Z"
+  },
+  {
+    "Id": 11,
+    "name": "Denim Jacket Classic",
+    "description": "Timeless denim jacket with vintage wash and classic fit. Made from premium cotton denim with authentic details.",
+    "price": 69.99,
+    "compareAtPrice": 89.99,
+    "category": "Clothing",
+    "images": [
+      "/api/placeholder/400/423",
+      "/api/placeholder/400/424"
+    ],
+    "stock": 22,
+    "sku": "DJC-001",
+    "rating": 4.2,
+    "reviewCount": 41,
+    "featured": false,
+    "createdAt": "2024-01-07T12:30:00Z",
+    "updatedAt": "2024-01-20T14:15:00Z"
+  },
+  {
+    "Id": 12,
+    "name": "Kitchen Knife Set",
+    "description": "Professional 7-piece kitchen knife set with wooden block. High-carbon stainless steel blades with ergonomic handles.",
+    "price": 159.99,
+    "compareAtPrice": 199.99,
+    "category": "Home & Kitchen",
+    "images": [
+      "/api/placeholder/400/425",
+      "/api/placeholder/400/426",
+      "/api/placeholder/400/427"
+    ],
+    "stock": 12,
+    "sku": "KKS-001",
+    "rating": 4.7,
+    "reviewCount": 85,
+    "featured": false,
+    "createdAt": "2024-01-05T14:45:00Z",
+    "updatedAt": "2024-01-18T11:30:00Z"
+  }
+]

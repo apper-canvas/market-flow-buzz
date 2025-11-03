@@ -1,0 +1,125 @@
+[
+  {
+    "Id": 1,
+    "email": "john.doe@example.com",
+    "name": "John Doe",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr-1",
+        "street": "123 Main Street",
+        "city": "San Francisco",
+        "state": "CA",
+        "zipCode": "94105",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "phone": "+1 (555) 123-4567",
+    "createdAt": "2024-01-10T08:30:00Z"
+  },
+  {
+    "Id": 2,
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr-2",
+        "street": "456 Oak Avenue",
+        "city": "Los Angeles",
+        "state": "CA",
+        "zipCode": "90210",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "phone": "+1 (555) 987-6543",
+    "createdAt": "2024-01-12T14:15:00Z"
+  },
+  {
+    "Id": 3,
+    "email": "mike.johnson@example.com",
+    "name": "Mike Johnson",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr-3",
+        "street": "789 Pine Street",
+        "city": "Seattle",
+        "state": "WA",
+        "zipCode": "98101",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "phone": "+1 (555) 456-7890",
+    "createdAt": "2024-01-08T11:45:00Z"
+  },
+  {
+    "Id": 4,
+    "email": "sarah.wilson@example.com",
+    "name": "Sarah Wilson",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr-4",
+        "street": "321 Elm Drive",
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "country": "United States",
+        "isDefault": true
+      },
+      {
+        "id": "addr-5",
+        "street": "987 Cedar Court",
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78702",
+        "country": "United States",
+        "isDefault": false
+      }
+    ],
+    "phone": "+1 (555) 321-0987",
+    "createdAt": "2024-01-15T16:20:00Z"
+  },
+  {
+    "Id": 5,
+    "email": "david.brown@example.com",
+    "name": "David Brown",
+    "role": "customer",
+    "addresses": [
+      {
+        "id": "addr-6",
+        "street": "654 Maple Lane",
+        "city": "Denver",
+        "state": "CO",
+        "zipCode": "80202",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "phone": "+1 (555) 654-3210",
+    "createdAt": "2024-01-18T09:30:00Z"
+  },
+  {
+    "Id": 6,
+    "email": "admin@marketflow.com",
+    "name": "Admin User",
+    "role": "admin",
+    "addresses": [
+      {
+        "id": "addr-7",
+        "street": "100 Business Plaza",
+        "city": "New York",
+        "state": "NY",
+        "zipCode": "10001",
+        "country": "United States",
+        "isDefault": true
+      }
+    ],
+    "phone": "+1 (555) 000-0000",
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
+]
