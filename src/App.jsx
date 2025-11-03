@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import store from './store/store';
+import { store } from './store/store';
 import Header from './components/organisms/Header';
 import CartSidebar from '@/components/organisms/CartSidebar';
 import Home from '@/pages/Home';
