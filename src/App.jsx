@@ -1,6 +1,6 @@
 import '@/index.css';
 import React, { useState } from "react";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { store } from "./store/store";
@@ -23,9 +23,9 @@ function App() {
     setIsCartOpen(!isCartOpen);
   };
 
-  return (
+return (
     <Provider store={store}>
-      <Router>
+      <BrowserRouter>
         <div className="min-h-screen bg-background">
           <Header onCartOpen={handleCartOpen} />
           <main className="pt-16">
@@ -54,9 +54,9 @@ function App() {
             draggable
             pauseOnHover
             theme="light"
-          />
+/>
         </div>
-      </Router>
+      </BrowserRouter>
     </Provider>
   );
 }
