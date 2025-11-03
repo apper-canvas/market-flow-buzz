@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Button from "@/components/atoms/Button";
@@ -11,7 +11,6 @@ import Error from "@/components/ui/Error";
 import Empty from "@/components/ui/Empty";
 import ApperIcon from "@/components/ApperIcon";
 import { productService } from "@/services/api/productService";
-
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
@@ -20,6 +19,8 @@ const Products = () => {
   const [error, setError] = useState(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [viewMode, setViewMode] = useState("grid");
+// Check if this is the deals page
+  const isDealsPage = location.pathname === '/deals';
 
   // Filter state
   const [filters, setFilters] = useState({
@@ -28,29 +29,29 @@ const Products = () => {
     minPrice: 0,
     maxPrice: 1000,
     minRating: 0,
-    sortBy: searchParams.get("sort") || "featured"
+    sortBy: searchParams.get("sort") || "featured",
+    deals: isDealsPage
   });
 
   const [priceRange, setPriceRange] = useState({ min: 0, max: 1000 });
-
   useEffect(() => {
     loadCategories();
   }, []);
-
-  useEffect(() => {
+useEffect(() => {
     loadProducts();
   }, [filters]);
 
   useEffect(() => {
-    // Update filters from URL params
+    // Update filters from URL params and page location
     const newFilters = {
       ...filters,
       category: searchParams.get("category") || "",
       search: searchParams.get("search") || "",
-      sortBy: searchParams.get("sort") || "featured"
+      sortBy: searchParams.get("sort") || "featured",
+      deals: location.pathname === '/deals'
     };
     setFilters(newFilters);
-  }, [searchParams]);
+  }, [searchParams, location.pathname]);
 
   const loadCategories = async () => {
     try {
@@ -61,12 +62,23 @@ const Products = () => {
     }
   };
 
-  const loadProducts = async () => {
+const loadProducts = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      const productsData = await productService.getAll(filters);
+      let productsData = await productService.getAll(filters);
+      
+      // If deals filter is active, filter for products with discounts or special pricing
+      if (filters.deals) {
+        productsData = productsData.filter(product => 
+          product.discountPrice || 
+          product.isOnSale || 
+          product.discount > 0 ||
+          (product.originalPrice && product.price < product.originalPrice)
+        );
+      }
+      
       setProducts(productsData);
 
       // Calculate actual price range from products
@@ -135,8 +147,9 @@ const Products = () => {
         >
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">
-                {filters.search ? `Search: "${filters.search}"` : 
+<h1 className="text-3xl font-bold text-gray-800 mb-2">
+                {filters.deals ? "Special Deals" :
+                 filters.search ? `Search: "${filters.search}"` : 
                  filters.category ? `${filters.category}` : "All Products"}
               </h1>
               <p className="text-gray-600">

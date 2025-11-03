@@ -136,7 +136,7 @@ await cartService.addItem(product.Id, 1);
                 <ApperIcon name="ArrowRight" size={24} />
               </Button>
               <Button
-                size="xl"
+size="xl"
                 variant="secondary"
                 onClick={() => navigate("/deals")}
                 className="text-lg bg-white/10 border-white/20 text-white hover:bg-white/20"
